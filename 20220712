@@ -1,0 +1,120 @@
+\documentclass[a4j]{jarticle}
+\renewcommand{\baselinestretch}{0.85}
+\usepackage[top=1.5cm, bottom=1.5cm, left=1.5cm, right=1.5cm]{geometry}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{subfig}
+\usepackage{url}
+%\usepackage{xcolor}
+\usepackage{multirow}
+%\usepackage{siunitx}
+\usepackage{listings}
+\usepackage{caption,stackengine}
+
+\begin{document}
+
+\begin{flushright}
+	MDLabグループミーティング資料\\
+	2022年7月12日(火曜日)
+\end{flushright}
+
+\begin{center}
+	{\Large 機械学習を用いたアート作品の生成}
+\end{center}
+
+\begin{flushright}
+	{\large B3  清水一樹 丸地恭平}
+\end{flushright}
+
+\section{研究背景および目的}
+\begin{itemize}
+	\item 背景
+	
+	AI市場の拡大
+
+	AIが作成した肖像画が高値で落札されたことなどアート界にAIが進出してきている
+    \begin{itemize}
+		\item AIが作成した肖像画が約4740万円で落札
+	\end{itemize}
+	\item 目的： VQ-GAN+CLIPを用いて、任意の画像の画風を変えて画像生成をするモデルの作成
+	
+	また、モデルを作成していくうえでVQ-GAN＋CLIPの仕組みを説明できるようにする
+\end{itemize}
+
+\section{これまでの研究のまとめ}
+\begin{itemize}
+	\item 提案手法
+	\begin{itemize}
+		\item 画像生成モデルのVQ-GANを使用
+		\item ニューラルネットワークのCLIPを組み合わせる
+	\end{itemize}
+	\item 前回までの進捗
+	\begin{itemize}
+		\item Google colaboratory上でのVQ-GAN＋CLIPの実行
+	\end{itemize}
+	\begin{itemize}
+		\item 既存のものを実際に動かして動作の確認
+	\end{itemize}
+	\begin{itemize}
+		\item 出力した画像の変化の確認
+	\end{itemize}
+	\begin{itemize}
+		\item VQ-GAN+CLIPを理解するために、基礎となる技術を調べた
+	\end{itemize}
+\end{itemize}
+
+\begin{figure}[ht]
+	%単一の図を出力する方法%
+	\centering%
+	\includegraphics[height=7cm]{vq-gan_clip_at.png}%
+	\caption{VQ-GAN+CLIPのアーキテクチャ\cite{vqgan}}%
+\end{figure}
+
+\clearpage
+
+\section{前回のGM／LTからの進捗}
+\begin{itemize}
+	\item  Style Transferを使って画風変換
+	\begin{itemize}
+		\item コンテンツ画像をVQ-GAN+CLIPで作った画像
+		\begin{itemize}
+			\item a fantasy world(図2)
+		\end{itemize}
+		\item スタイル画像はウェブサイトより\cite{style}
+		\begin{itemize}
+			\item 富嶽三十六景(図3)
+		\end{itemize}
+	\end{itemize}
+\end{itemize}
+
+\begin{figure}[ht]
+	\begin{minipage}{0.45\linewidth}
+		\centering%
+		\includegraphics[height=7cm]{a_fantasy_world_0300.png}%
+		\caption{content iamge}%
+	\end{minipage}
+	\begin{minipage}{0.45\linewidth}
+		\centering%
+		\includegraphics[height=7cm]{style_image.png}%
+		\caption{style image}%
+	\end{minipage}
+\end{figure}
+
+\begin{figure}[ht]
+	%単一の図を出力する方法%
+	\centering%
+	\includegraphics[height=7cm]{stylized_image.png}%
+	\caption{画風変換した画像}%
+\end{figure}
+
+
+\section{今後の課題\&スケジュール}
+\begin{itemize}
+	\item 報告会まで： 
+\end{itemize}
+
+\begin{thebibliography}{9}
+	\bibitem{vqgan} Yuya Saito, Runhe Hang. \url{https://must.c.u-tokyo.ac.jp/sigam/sigam27/sigam2702.pdf}, SIG-AM-27-02.
+	\bibitem{style} \url{https://upload.wikimedia.org/wikipedia/commons/0/0a/The_Great_Wave_off_Kanagawa.jpg}
+\end{thebibliography}
+
+\end{document}
